@@ -1,8 +1,8 @@
 import WordTickets from "@/components/WordTickets";
-import { useRouter } from "next/navigation";
 
 async function getData(url: string) {
   const res = await fetch(url);
+  console.log("getData");
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
 
@@ -18,7 +18,7 @@ export const apiRoutes = {
   root: "http://localhost:8000",
 
   files: (file: string) => `${apiRoutes.root}/${file}`,
-  words: (page: number, group: number) =>
+  words: (page: number | string, group: number | string) =>
     `${apiRoutes.root}/words?page=${page}&group=${group}`,
   usersWords: (userId: string) => `${apiRoutes.root}/users/${userId}/words`,
   usersWordsById: (userId: string, wordId: string) =>
@@ -30,8 +30,14 @@ export const apiRoutes = {
   userById: (userId: string) => `${apiRoutes.root}/users/${userId}`,
 };
 
-const Textbook = async ({ searchParams }) => {
-  const { page, group } = searchParams;
+const Textbook = async ({
+  params,
+  searchParams,
+}: {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}) => {
+  const { page = "", group = "" } = searchParams;
   const words = await getData(apiRoutes.words(page, group));
 
   return <>{words && <WordTickets words={words} />}</>;

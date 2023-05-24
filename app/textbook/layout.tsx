@@ -1,3 +1,4 @@
+import TextbookHeader from "@/components/TextbookHeader";
 import TextbookSidebar from "@/components/TextbookSidebar";
 
 export default function TextbookLayout({
@@ -8,7 +9,7 @@ export default function TextbookLayout({
   return (
     <main className="flex-auto">
       <div className="container pl-10 pr-10 pt-16">
-        {/* <TextbookHeader /> */}
+        <TextbookHeader />
         <div className="flex justify-between gap-x-10 pt-5">
           <TextbookSidebar />
           {children}

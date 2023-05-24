@@ -4,10 +4,9 @@ import classNames from "classnames";
 type Props = {
   group: number;
   selectedGroup?: number;
-  onSelect: (group: number) => void;
 };
 
-const GroupItem = ({ group, selectedGroup, onSelect }: Props) => (
+const GroupItem = ({ group, selectedGroup }: Props) => (
   <button
     className={classNames(
       "relative flex h-14 flex-grow flex-col items-center justify-end gap-x-1 rounded-lg bg-section-dark py-1 pb-1",
@@ -15,8 +14,6 @@ const GroupItem = ({ group, selectedGroup, onSelect }: Props) => (
         "outline outline-1 outline-highlite": Number(selectedGroup) === group,
       }
     )}
-    onClick={() => onSelect(group)}
-    key={group}
   >
     <span className="text-lg text-gray-200">{`Глава ${
       Number(group) + 1

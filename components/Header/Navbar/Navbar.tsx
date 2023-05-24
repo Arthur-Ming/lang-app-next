@@ -2,22 +2,25 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import TextbookIcon from "./textbook.svg";
+import GamesIcon from "./games.svg";
+import StatisticsIcon from "./statistics.svg";
 
 const links = [
   {
-    link: "/textbook",
+    path: "/textbook",
     title: "textbook",
-    /*  icon: TextbookIcon, */
+    icon: TextbookIcon,
   },
   {
-    link: "/games",
+    path: "/games",
     title: "games",
-    /*  icon: GamesIcon, */
+    icon: GamesIcon,
   },
   {
-    link: "/statistics",
+    path: "/statistics",
     title: "statistics",
-    /* icon: StatisticsIcon, */
+    icon: StatisticsIcon,
   },
 ];
 
@@ -27,19 +30,20 @@ const NavBar = () => {
   return (
     <nav>
       <ul className="flex gap-x-10">
-        {links.map(({ link, title }) => (
-          <li key={link}>
+        {links.map(({ path, title, icon: Icon }) => (
+          <li key={path}>
             <Link
-              href={link}
+              href={path === "/textbook" ? "/textbook?page=1&group=1" : path}
               className={classNames(
                 "relative flex gap-x-2 duration-200 ease-linear hover:opacity-80",
                 {
-                  "text-gray-200": !(pathName === link),
+                  "text-gray-200": !(pathName === path),
                   'text-gray-100 after:absolute after:top-8 after:h-0.5 after:w-full after:bg-highlite after:content-[""]':
-                    pathName === link,
+                    pathName === path,
                 }
               )}
             >
+              <Icon className="h-8 w-8" />
               {title}
             </Link>
           </li>
