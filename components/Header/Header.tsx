@@ -1,4 +1,3 @@
-import Head from "next/head";
 import AuthLink from "./AuthLink";
 import Logo from "./Logo";
 import Navbar from "./Navbar";

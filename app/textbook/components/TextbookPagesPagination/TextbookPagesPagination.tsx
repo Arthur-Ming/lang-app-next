@@ -1,9 +1,9 @@
+"use client";
 import ReactPaginate from "react-paginate";
 import classNames from "classnames";
-import clientRoutes from "@/utils/clientRoutes";
 import ArrowPrev from "./prev.svg";
 import ArrowNext from "./next.svg";
-import { PAGE_COUNT, PAGE_SHIFT } from "@/constants";
+import { PAGE_COUNT } from "@/constants";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const TextbookPagesPagination = () => {
@@ -12,21 +12,9 @@ const TextbookPagesPagination = () => {
 
   const currentGroup = searchParams.get("group");
   const currentPage = searchParams.get("page");
-  /*  const { page: currentPage = 1, group = 1 } = useParams(); */
 
-  /* const { isFetching } = useLoadWordsQueryState({
-    page: Number(currentPage) - 1,
-    group: Number(group) - 1,
-  }); */
-
-  /*  const isHardWords = useMatch("textbook/user-words");
-  const navigate = useNavigate(); */
   const handlePageClick = ({ selected }: { selected: number }) => {
-    /*    navigate(
-      clientRoutes.textbook.words.relative(selected + PAGE_SHIFT, group)
-    ); */
     router.push(`textbook?page=${selected}&group=${currentGroup}`);
-    console.log("!!!");
   };
 
   return (

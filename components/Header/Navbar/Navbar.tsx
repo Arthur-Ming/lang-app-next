@@ -33,7 +33,7 @@ const NavBar = () => {
         {links.map(({ path, title, icon: Icon }) => (
           <li key={path}>
             <Link
-              href={path === "/textbook" ? "/textbook?page=1&group=1" : path}
+              href={path}
               className={classNames(
                 "relative flex gap-x-2 duration-200 ease-linear hover:opacity-80",
                 {

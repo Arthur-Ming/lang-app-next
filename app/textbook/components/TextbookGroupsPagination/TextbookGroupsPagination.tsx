@@ -1,6 +1,6 @@
+"use client";
 import classNames from "classnames";
 import { GROUP_COUNT } from "@/constants";
-import GroupItem from "@/components/GroupItem";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import LabelIcon from "./label.svg";

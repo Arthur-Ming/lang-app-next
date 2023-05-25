@@ -1,4 +1,5 @@
 import WordTickets from "@/components/WordTickets";
+import { redirect } from "next/navigation";
 
 async function getData(url: string) {
   const res = await fetch(url);
@@ -31,13 +32,15 @@ export const apiRoutes = {
 };
 
 const Textbook = async ({
-  params,
   searchParams,
 }: {
   params: { slug: string };
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: { [key: string]: string | undefined };
 }) => {
-  const { page = "", group = "" } = searchParams;
+  const { page, group } = searchParams;
+  if (!page || !group) {
+    redirect("/textbook?page=0&group=0");
+  }
   const words = await getData(apiRoutes.words(page, group));
 
   return <>{words && <WordTickets words={words} />}</>;

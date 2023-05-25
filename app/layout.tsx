@@ -16,8 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children}
+        <div className="relative flex min-h-screen w-full flex-col bg-main-dark">
+          <Header />
+          {children}
+        </div>
       </body>
     </html>
   );

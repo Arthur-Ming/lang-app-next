@@ -1,4 +1,3 @@
-"use client";
 import TextbookPagesPagination from "../TextbookPagesPagination";
 
 const TextbookHeader = () => (

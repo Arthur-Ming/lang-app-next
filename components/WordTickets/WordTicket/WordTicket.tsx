@@ -1,4 +1,5 @@
-/* import { ReactComponent as LabelIcon } from "./label.svg"; */
+"use client";
+import LabelIcon from "./label.svg";
 import WordTicketAudio from "./WordTicketAudio";
 /* import { useNavigate } from "react-router"; */
 import classNames from "classnames";
@@ -52,7 +53,6 @@ const WordTicket = ({ word }: Props) => {
             width={100}
             height={64}
           />
-          {/*  <img className="h-full w-full object-cover" src={apiRoutes.files(image)} alt={wordText} /> */}
         </div>
         <h3 className="text-2xl text-gray-200">{`${wordText} - ${transcription} - ${wordTranslate}`}</h3>
       </div>
@@ -61,7 +61,7 @@ const WordTicket = ({ word }: Props) => {
         {/*   <WordChosen word={word} />
         <WordTicketAudio wordId={wordId} audio={audio} /> */}
       </div>
-      {/* <LabelIcon
+      <LabelIcon
         className={classNames("absolute -top-1 right-5 h-6 w-6", {
           "text-group-1": group === 0,
           "text-group-2": group === 1,
@@ -70,7 +70,7 @@ const WordTicket = ({ word }: Props) => {
           "text-group-5": group === 4,
           "text-group-6": group === 5,
         })}
-      /> */}
+      />
     </div>
   );
 };
